@@ -1,0 +1,1 @@
+Sección dedicada a la explicación del empleo del código fuente para pruebas de reconocimiento automáticas con monkey+ripper basados en Cypress.

@@ -1,0 +1,1 @@
+Sección dedicada a la explicación del empleo de los procesos llevados a cabo para pruebas manuales.

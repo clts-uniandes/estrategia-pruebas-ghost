@@ -1,0 +1,1 @@
+Sección dedicada a la explicación del empleo del código fuente para pruebas con data autogenerada

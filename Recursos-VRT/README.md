@@ -1,0 +1,1 @@
+Sección dedicada a la explicación del empleo del código fuente para pruebas que soportan Visual Regression Testing (VRT)

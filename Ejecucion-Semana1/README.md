@@ -1,0 +1,1 @@
+Sección dedicada a la explicación de la ejecución de trabajo de la Semana 1 de la estrategia de pruebas
