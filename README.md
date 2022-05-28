@@ -1,7 +1,7 @@
 # estrategia-pruebas-ghost
 Parte de la Entrega final de Pruebas Automatizadas
 
-####Instrucciones generales
+#### Instrucciones generales
 
 Cada carpeta indica, mediante su nombre, el estilo de técnica que apoyan para la estrategia de pruebas a ejecutar (sólo están de apoyo, no son códigos maestros definitivos). Dentro de cada una, se cuenta con su propio README para facilitar la explicación del propósito y modo de empleo del código o proceso contenido en cada una.
 
