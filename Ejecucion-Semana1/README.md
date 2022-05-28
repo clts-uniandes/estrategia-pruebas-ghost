@@ -1,5 +1,7 @@
 Sección dedicada a la explicación de la ejecución de trabajo de la Semana 1 de la estrategia de pruebas
 
+# Contenido archivos
+
 ### Pruebas exploratorias.pdf
 
 Documento que resume el trabajo hecho durante la Semana 1 de la estrategia de pruebas Ghost
@@ -24,7 +26,7 @@ Diagrama que refleja flujos de trabajo explorados, en pruebas de exploración ma
 
 Hoja de cálculo que reportar las pruebas exploratorias manuales "puntuales" ejecutadas por cada ingeniero. Debido a resultados graduales durante la ejecución de las mismas, el dominio funcional descrito en estrategia de pruebas no coincide exactamente con el asignado a cada ingeniero en Semana 1, se retomará las asignaciones por funcionalidad desde la Semana 2.
 
-### Metodología
+# Metodología
 
 1. Presentación breve Ghost por parte de cliente a ingenieros automatizadores
 2. Trabajo conjunto de ingenieros para detectar flujos a evaluar manualmente, para arranque de Semana
