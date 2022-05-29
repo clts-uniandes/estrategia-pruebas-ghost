@@ -24,4 +24,16 @@ A manera de resumen:
 * Recursos-Reconocimiento: Contiene ejemplos de scripts de pruebas de reconocimiento, con script estilo Monkey y otro estilo Ripper
 * Recursos-VRT: Contiene código de pruebas automatizadas con toma de pantallas incluido, y una herramienta que genera un reporte HTML mediante comparativa de screenshots.
 
-Adicionalmente en `Ejecucion-Semana1` se comparte el resultado de la ejecuión de la primera semana de Estrategia (Ghost v3.41.1).
+Adicionalmente en `Ejecucion-Semana1` se comparte el resultado de la ejecución de la primera semana de Estrategia (Ghost v3.41.1).
+
+## Seguimiento de incidencias
+
+Las incidencias que vayan descubriendo los ingenieros se recopilarán en la sección Issues de este mismo repositorio.
+
+https://github.com/clts-uniandes/estrategia-pruebas-ghost/issues
+
+## Video presentación ejecutiva
+
+Hemos preparado un video para exponer de manera general la estrategia de pruebas redactada para el proyecto, y la ejecución de la Semana 1 definida en el mismo.
+
+Enlace a OneDrive: Presentación final - Estrategia de pruebas Ghost.mp4
