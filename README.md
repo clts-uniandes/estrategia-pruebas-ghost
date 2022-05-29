@@ -24,4 +24,4 @@ A manera de resumen:
 * Recursos-Reconocimiento: Contiene ejemplos de scripts de pruebas de reconocimiento, con script estilo Monkey y otro estilo Ripper
 * Recursos-VRT: Contiene código de pruebas automatizadas con toma de pantallas incluido, y una herramienta que genera un reporte HTML mediante comparativa de screenshots.
 
-Adicionalmente en Semana 1 se comparte el resultado de la ejecuión de la primera semana de Estrategia (Ghost v3.41.1).
+Adicionalmente en `Ejecucion-Semana1` se comparte el resultado de la ejecuión de la primera semana de Estrategia (Ghost v3.41.1).
