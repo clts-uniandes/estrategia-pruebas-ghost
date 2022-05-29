@@ -2,6 +2,10 @@ Sección dedicada a la explicación de la ejecución de trabajo de la Semana 1 d
 
 # Contenido archivos
 
+### Flujo modelo GUI.pdf
+
+Diagrama que refleja flujos de trabajo explorados, en pruebas de exploración manual de los ingenieros automatizadores. Se tendrá como modelo GUI de la aplicación para pruebas a automatizar. Hecho con Figma.
+
 ### Pruebas exploratorias.pdf
 
 Documento que resume el trabajo hecho durante la Semana 1 de la estrategia de pruebas Ghost
@@ -16,11 +20,7 @@ Diagrama de contexto solicitado por cliente para tener presente el entorno real 
 
 ### diagrama-de-dominio.png
 
-Diagrama solicitado por cliente para tener una documentación mínima de la estructura de la base de datos por defecto a proveer con Ghost out-of-the-box
-
-### Flujo modelo GUI.pdf
-
-Diagrama que refleja flujos de trabajo explorados, en pruebas de exploración manual de los ingenieros automatizadores. Se tendrá como modelo GUI de la aplicación para pruebas a automatizar. Hecho con Figma.
+Diagrama solicitado por cliente para tener una documentación mínima de la estructura de la base de datos por defecto a proveer con Ghost out-of-the-box.
 
 ### inventario-pruebas-exploratorias.xlsx
 
