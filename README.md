@@ -12,9 +12,9 @@ Parte de la Entrega final de Pruebas Automatizadas
 
 #### Instrucciones generales
 
-Cada carpeta indica, mediante su nombre, el estilo de técnica que apoyan para la estrategia de pruebas a ejecutar (sólo están de apoyo, no son códigos maestros definitivos). Dentro de cada una, se cuenta con su propio README para facilitar la explicación del propósito y modo de empleo del código o proceso contenido en cada una.
+Cada carpeta indica, mediante su nombre, el estilo de técnica que apoyan para la estrategia de pruebas a ejecutar, ya que son códigos hechos para probar aplicaciones Ghost en proyectos pasados. **No sustituyen el código que se generará en la ejecución completa de la estrategia de pruebas**. Dentro de cada una, se cuenta con su propio README para facilitar la explicación del propósito y modo de empleo del código o proceso contenido en cada una.
 
-Todo se generó pensando en la versión Ghost 3.41.1
+Todo se generó pensando en una versión 3 Ghost anterior o idéntica a la que se prueba en la estrategia de pruebas.
 
 A manera de resumen:
 
@@ -24,4 +24,4 @@ A manera de resumen:
 * Recursos-Reconocimiento: Contiene ejemplos de scripts de pruebas de reconocimiento, con script estilo Monkey y otro estilo Ripper
 * Recursos-VRT: Contiene código de pruebas automatizadas con toma de pantallas incluido, y una herramienta que genera un reporte HTML mediante comparativa de screenshots.
 
-Adicionalmente en Semana 1 se comparte el resultado de la ejecuión de la primera semana de Estrategia.
+Adicionalmente en Semana 1 se comparte el resultado de la ejecuión de la primera semana de Estrategia (Ghost v3.41.1).
