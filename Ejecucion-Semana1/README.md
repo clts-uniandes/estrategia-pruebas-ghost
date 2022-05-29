@@ -2,14 +2,6 @@ Sección dedicada a la explicación de la ejecución de trabajo de la Semana 1 d
 
 # Contenido archivos
 
-### Flujo modelo GUI.pdf
-
-Diagrama que refleja flujos de trabajo explorados, en pruebas de exploración manual de los ingenieros automatizadores. Se tendrá como modelo GUI de la aplicación para pruebas a automatizar. Hecho con Figma.
-
-### Pruebas exploratorias.pdf
-
-Documento que resume el trabajo hecho durante la Semana 1 de la estrategia de pruebas Ghost
-
 ### diagrama-de-componentes.png
 
 Diagrama básico que indica componentes identificados en aplicación Ghost
@@ -33,3 +25,7 @@ Hoja de cálculo que reportar las pruebas exploratorias manuales "puntuales" eje
 3. Ejecución desde máquinas portátiles de exploración manual, y documentados
 4. Ejecución de herramienta IntelliJ propia de un automatizador para general modelo de datos
 5. Recopilación de pantallazos de manera general en proyecto Figma compartido y exportado a archivo PDF.
+
+## Adicional
+
+Diagrama que refleja flujos de trabajo explorados, en pruebas de exploración manual de los ingenieros automatizadores. Se tendrá como modelo GUI de la aplicación para pruebas a automatizar. Ver https://www.figma.com/file/aAZKh6nHZOCb7c83SVgZE1/ghost_3.41.1?node-id=0%3A1.
