@@ -7,7 +7,7 @@ import Env from "../util/environment";
 
 import { test, expect } from '@playwright/test';
 
-test.describe("PA013 - ", () => {
+test.describe("PA013 - Eliminar post en draft", () => {
 
     let browser: Browser;
     let context: BrowserContext;
@@ -21,13 +21,14 @@ test.describe("PA013 - ", () => {
 
     test.beforeAll( async() => {
         browser = await chromium.launch({
-            headless: Env.headless,
+            headless: Env.HEADLESS,
         });
         context = await browser.newContext({ viewport: { width: 1200, height: 600 } });
         page = await context.newPage();
 
         //TODO GIVEN url tol login
-        await page.goto(Env.baseUrl + Env.adminSection);
+        await page.goto(Env.BASE_URL + Env.ADMIN_SECTION);
+        await page.waitForSelector("input[name='identification']");
         login = new LoginPage(page);
         home = new HomePage(page);
         posts = new PostPage(page);
@@ -36,22 +37,20 @@ test.describe("PA013 - ", () => {
 
     test("should create post , keep in draft and finally delete post - positive scenario", async () => {
         //TODO WHEN I log in
-        await login.signInWith(Env.user, Env.pass);
+        await login.signInWith(Env.USER, Env.PASS);
         await home.clickPostsLink();
         expect(page.url()).toContain("/#/posts");
         await posts.clickNewPostLink();
         expect(page.url()).toContain("/#/editor/post");
-
         //TODO WHEN I create a post
         await postEditor.fillPostTitle("Titulo de post utilizando playwright");
         await postEditor.fillPostContent("Contenido de post utilizando playwright");
 
         //TODO WHEN I draft the post
         await postEditor.clickPostsLink();
-        //await postEditor.clickLeaveButton();
 
         //TODO THEN I expected the post will be draft status
-        const linkDraftPost = await posts.findPageByTitleAndStatus("Titulo de post utilizando playwright", "DRAFT");
+        const linkDraftPost = await posts.findPostByTitleAndStatus("Titulo de post utilizando playwright", "DRAFT");
         expect(linkDraftPost).not.toBeNull();
 
         //TODO WHEN I delete the post
@@ -61,7 +60,7 @@ test.describe("PA013 - ", () => {
         await postEditor.clickConfirmationDeletePostButton();
 
         //TODO THEN I expected the post will be deleted
-        const linkDeletedPost = await posts.findPageByTitleAndStatus("Titulo de post utilizando playwright", "DRAFT");
+        const linkDeletedPost = await posts.findPostByTitleAndStatus("Titulo de post utilizando playwright", "DRAFT");
         expect(linkDeletedPost).toBeUndefined();
     });
 

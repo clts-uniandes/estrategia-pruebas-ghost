@@ -7,7 +7,7 @@ import Env from "../util/environment";
 
 import { test, expect } from '@playwright/test';
 
-test.describe("PA002 - ", () => {
+test.describe("PA002 - Publicación programada de página", () => {
 
     let browser: Browser;
     let context: BrowserContext;
@@ -21,13 +21,14 @@ test.describe("PA002 - ", () => {
 
     test.beforeAll( async() => {
         browser = await chromium.launch({
-            headless: Env.headless
+            headless: Env.HEADLESS
         });
         context = await browser.newContext({ viewport: { width: 1200, height: 600 } });
         page = await context.newPage();
 
         //TODO GIVEN url tol login
-        await page.goto(Env.baseUrl + Env.adminSection);
+        await page.goto(Env.BASE_URL + Env.ADMIN_SECTION);
+        await page.waitForSelector("input[name='identification']");
         login = new LoginPage(page);
         home = new HomePage(page);
         posts = new PostPage(page);
@@ -35,7 +36,7 @@ test.describe("PA002 - ", () => {
     });
 
     test("should schedule a post and validate the creation - positive scenario", async () => {
-        await login.signInWith(Env.user, Env.pass);
+        await login.signInWith(Env.USER, Env.PASS);
         await home.clickPostsLink();
         expect(page.url()).toContain("/#/posts");
         await posts.clickNewPostLink();
@@ -45,11 +46,19 @@ test.describe("PA002 - ", () => {
         await postEditor.clickPublishLink();
         await postEditor.updateTimeToPublish();
         await postEditor.clickPostsLink();
-        const linkScheduledPost = await posts.findPageByTitleAndStatus("Titulo de post programado utilizando playwright", "SCHEDULED");
+        const linkScheduledPost = await posts.findPostByTitleAndStatus("Titulo de post programado utilizando playwright", "SCHEDULED");
         expect(linkScheduledPost).not.toBeNull();
     });
 
     test.afterAll(async () => {
+        //TODO WHEN I delete the post
+        const linkScheduledPost = await posts.findPostByTitleAndStatus("Titulo de post programado utilizando playwright", "SCHEDULED");
+        expect(linkScheduledPost).not.toBeNull();
+        await posts.navigateToEditionLink(linkScheduledPost);
+        await postEditor.clickSettingButton();
+        await postEditor.clickDeletePostButton();
+        await postEditor.clickConfirmationDeletePostButton();
+
         await page.close();
         await context.close();
         await browser.close()

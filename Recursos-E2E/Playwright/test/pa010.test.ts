@@ -7,7 +7,7 @@ import Env from "../util/environment";
 
 import { test, expect } from '@playwright/test';
 
-test.describe("PA009 - ", () => {
+test.describe("PA010 - Creación y edición de tag", () => {
 
     let browser: Browser;
     let context: BrowserContext;
@@ -21,48 +21,42 @@ test.describe("PA009 - ", () => {
 
     test.beforeAll( async() => {
         browser = await chromium.launch({
-            headless: Env.headless
+            headless: Env.HEADLESS
         });
         context = await browser.newContext({ viewport: { width: 1200, height: 600 } });
         page = await context.newPage();
 
         //TODO GIVEN url tol login
-        await page.goto(Env.baseUrl + Env.adminSection);
+        await page.goto(Env.BASE_URL + Env.ADMIN_SECTION);
         login = new LoginPage(page);
         home = new HomePage(page);
         tags = new TagPage(page);
         tagEditor = new TagEditorPage(page);
     });
 
-    test("should create tag and delete tag - positive scenario", async () => {
+    test("should create tag and edit tag - positive scenario", async () => {
         //TODO WHEN I log in
-        await login.signInWith(Env.user, Env.pass);
+        await login.signInWith(Env.USER, Env.PASS);
         //TODO WHEN I navigate to Page module
         await home.clickTagsLink();
         //TODO THEN I expected that url will updated
         expect(page.url()).toContain("/#/tags");
-
         await tags.clickNewTagLink();
         expect(page.url()).toContain("/#/tags/new");
-
-        await tagEditor.fillTagName("Nombre tag pa009 con playwright");
+        await tagEditor.fillTagName("Nombre tag con playwright");
         await tagEditor.fillTagSlug("Slug utilizando playwright");
         await tagEditor.fillTagDescription("Descripcion utilizando playwright");
         await tagEditor.clickButtonSave();
         await tagEditor.clickTagsLink();
         expect(page.url()).toContain("/#/tags");
-
-        const linkCreatedTag = await tags.findPageByTitle("Nombre tag pa009 con playwright");
+        const linkCreatedTag = await tags.findPageByTitle("Nombre tag con playwright");
         expect(linkCreatedTag).not.toBeNull();
-
         await tags.navigateToEditionLink(linkCreatedTag);
-
-        await tagEditor.clickDeleteButton();
-        await tagEditor.clickConfirmationDeleteButton();
-        expect(page.url()).toContain("/#/tags");
-
-        const linkEditedPage = await tags.findPageByTitle("Nombre tag pa009 con playwright");
-        expect(linkEditedPage).toBeUndefined();
+        await tagEditor.fillTagName("Nombre tag editado con playwright");
+        await tagEditor.clickButtonSave();
+        await tagEditor.clickTagsLink();
+        const linkEditedPage = await tags.findPageByTitle("Nombre tag editado con playwright");
+        expect(linkEditedPage).not.toBeNull();
     });
 
     test.afterAll(async () => {

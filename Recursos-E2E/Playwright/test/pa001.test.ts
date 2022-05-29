@@ -7,7 +7,7 @@ import Env from "../util/environment";
 
 import { test, expect } from '@playwright/test';
 
-test.describe("PA001 - ", () => {
+test.describe("PA001 - Edición de página", () => {
 
     let browser: Browser;
     let context: BrowserContext;
@@ -21,13 +21,14 @@ test.describe("PA001 - ", () => {
 
     test.beforeAll( async() => {
         browser = await chromium.launch({
-            headless: Env.headless
+            headless: Env.HEADLESS
         });
         context = await browser.newContext({ viewport: { width: 1200, height: 600 } });
         page = await context.newPage();
 
         //TODO GIVEN url tol login
-        await page.goto(Env.baseUrl + Env.adminSection);
+        await page.goto(Env.BASE_URL + Env.ADMIN_SECTION);
+        await page.waitForSelector("input[name='identification']");
         login = new LoginPage(page);
         home = new HomePage(page);
         pageGhost = new PageGhostPage(page);
@@ -36,15 +37,13 @@ test.describe("PA001 - ", () => {
 
     test("should create and edit a page - positive scenario", async () => {
         //TODO WHEN I log in
-        await login.signInWith(Env.user, Env.pass);
+        await login.signInWith(Env.USER, Env.PASS);
         //TODO WHEN I navigate to Page module
         await home.clickPagesLink();
         //TODO THEN I expected that url will updated
         expect(page.url()).toContain("/#/pages");
-
         await pageGhost.clickNewPageLink();
         expect(page.url()).toContain("/#/editor/page");
-
         await pageEditor.fillPageTitle("Titulo de pagina utilizando playwright");
         await pageEditor.fillPostContent("Contenido de pagina utilizando playwright");
         await pageEditor.clickPublishLink();
@@ -63,6 +62,12 @@ test.describe("PA001 - ", () => {
     });
 
     test.afterAll(async () => {
+        //TODO THEN I delete page in order to clean test
+        const pageToDelete = await pageGhost.findPageByTitle("Titulo de pagina editado utilizando playwright");
+        expect(pageToDelete).not.toBeNull();
+        await pageGhost.navigateToEditionLink(pageToDelete);
+        await pageEditor.deletePage();
+
         await page.close();
         await context.close();
         await browser.close()

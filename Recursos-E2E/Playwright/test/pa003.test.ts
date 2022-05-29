@@ -7,13 +7,13 @@ import Env from "../util/environment";
 
 import { test, expect } from '@playwright/test';
 
-test.describe("PA004 - ", () => {
+test.describe("PA003: Borrar página existente'", () => {
 
     let browser: Browser;
     let context: BrowserContext;
     let page: Page;
 
-    //My pageObjects
+    //pageObject variables
     let login: LoginPage;
     let home: HomePage;
     let pageGhost: PageGhostPage;
@@ -21,44 +21,55 @@ test.describe("PA004 - ", () => {
 
     test.beforeAll( async() => {
         browser = await chromium.launch({
-            headless: Env.headless
+            headless: Env.HEADLESS
         });
         context = await browser.newContext({ viewport: { width: 1200, height: 600 } });
         page = await context.newPage();
 
-        //TODO GIVEN url tol login
-        await page.goto(Env.baseUrl + Env.adminSection);
+        //Given I navigate to admin module
+        await page.goto(Env.BASE_URL + Env.ADMIN_SECTION);
         login = new LoginPage(page);
         home = new HomePage(page);
         pageGhost = new PageGhostPage(page);
         pageEditor = new PageEditorPage(page);
     });
 
-    test("should create and edit a page - positive scenario", async () => {
-        //TODO WHEN I log in
-        await login.signInWith(Env.user, Env.pass);
-        //TODO WHEN I navigate to Page module
+    test("should create a page and delete said page - Positive scenario", async () => {
+        //Given I log in
+        await login.signInWith(Env.USER, Env.PASS);
+        // Given I have a new Page to delete
         await home.clickPagesLink();
-        //TODO THEN I expected that url will updated
         expect(page.url()).toContain("/#/pages");
-
         await pageGhost.clickNewPageLink();
         expect(page.url()).toContain("/#/editor/page");
-
-        await pageEditor.fillPageTitle("Titulo de pagina con caracteres especiales @$@@$^&%$@#$@# utilizando playwright");
-        expect(await pageEditor.findErrorMessage()).toBeNull();
-        await pageEditor.fillPostContent("Contenido de pagina con caracteres especiales utilizando playwright");
+        await pageEditor.fillPageTitle("Mi página a borrar");
+        await pageEditor.fillPostContent("Érase una vez una página a borrar");
         await pageEditor.clickPublishLink();
         await pageEditor.clickPublishButton();
         await pageEditor.clickPagesLink();
-        const linkCreatedPage = await pageGhost.findPageByTitle("Titulo de pagina con caracteres especiales @$@@$^&%$@#$@# utilizando playwright");
+
+        //When I navigate to it
+        const linkCreatedPage = await pageGhost.findPageByTitle("Mi página a borrar");
         expect(linkCreatedPage).not.toBeNull();
+        await pageGhost.navigateToEditionLink(linkCreatedPage);
+        //When I enter into its settings menu
+        await pageEditor.clickSettingsButton();
+
+        //When I delete the page
+        await pageEditor.clickDeleteButton();
+        await pageEditor.clickConfirmDeleteButton();
+
+        // Then I should be back to the pages Module
+        await page.waitForURL('**/#/pages');
+        await new Promise(r => setTimeout(r, 2000));
+        
     });
 
     test.afterAll(async () => {
+        //no cleaning duties
         await page.close();
         await context.close();
-        await browser.close()
+        await browser.close();
     })
 
 });
