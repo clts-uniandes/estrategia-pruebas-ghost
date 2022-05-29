@@ -1,6 +1,8 @@
 # estrategia-pruebas-ghost
 Parte de la Entrega final de Pruebas Automatizadas
 
+El documento de la estrategia de pruebas completo está disponible en el archivo `estrategia-pruebas-final.pdf`
+
 # Integrantes del equipo
 
 | Nombre                           | Correo                    |
