@@ -201,7 +201,13 @@ public useFaker(fakerValue: FakerCategories, quantity?: number) {
 ![image](https://user-images.githubusercontent.com/98668775/168510550-069b32ab-d3eb-4ae4-99e7-2775191c3ed2.png)
 
 4. Ejecutar el comando `npx playwright test test/`
-5. Extra: Se cuenta con 2 tipos de scripts en general, unos tipo 'DP-<type>-SetXY.test.ts' y unos tipo ´DP-<type>-standalone.test.ts´, se sabe que los del segundo tipo capturaron en su momento errores en aplicaciones tipo Ghost. Entre estos, Scripts con la leyenda interna `(ISSUE: Descripcion)` reflejan bugs observados en su momento, ejecutelos por separado para verificar si éste es su caso para la versión Ghost a probar. Ej. script `DP-randomscenario-Standalone01.test.ts` (scripts relacionados: 09, 11, 12, 15, 21)
+5. Extra: Se cuenta con 2 tipos de scripts en general, ubicados en la carpeta `test`, unos tipo `DP-<type>-SetXY.test.ts` y unos tipo `DP-<type>-standalone.test.ts`, se sabe que los del segundo tipo capturaron en su momento errores en aplicaciones tipo Ghost. Entre estos, Scripts con la leyenda interna `(ISSUE: Descripcion)` reflejan bugs observados en su momento, ejecutelos por separado para verificar si éste es su caso para la versión Ghost a probar. Ej. script `DP-randomscenario-Standalone01.test.ts` (scripts relacionados: 09, 11, 12, 15, 21)
+
+Tal y como indica cada subcarpeta tests, indican las estrategias que se emplearon para su creación:ç
+
+* a-priori-pool: Piscinas de datos estáticas precreadas en archivos JSON
+* pseudorandom-pool: Piscinas de datos generadas dinámicamente con data pseudo-aleatoria
+* random-scenario: Sin piscinas explícitas, en cambio los scripts emplean librería FakerJS para generar data de prueba.
 
 ![image](https://user-images.githubusercontent.com/98668775/169742695-c6cbe364-8d63-40c2-a0a6-86b884403c6d.png)
 
