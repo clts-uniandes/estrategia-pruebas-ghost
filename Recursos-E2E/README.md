@@ -38,13 +38,20 @@ Según el equipo que generó este código en su momento, usaron de guía estos e
    
 ### Prerequisitos:
 - NodeJS 12 o posterior
+- Ghost V3.41.1
 
 ### Ejecución de pruebas:
 1. Ingresar al directorio kraken `cd kraken`
 2. Instalar dependencias `npm install`
-3. Configurar el archivo `kraken/properties.js` con los parametros `USERNAME`, `PASSWORD`, `LOGIN_URL` y `BASE_URL`
+3. Configurar el archivo `kraken/properties.js` con los parametros 
+```json
+{
+    "USERNAME": "usuario@login.ghost", //usuario login del sitio
+    "PASSWORD": "*******", //Contraseña login del sitio
+    "LOGIN_URL": "http://localhost:2369/ghost/#/signin", //URL del sitio a probar
+    "BASE_URl": "http://localhost:2369/ghost/#/signin", //URL del sitio a probar
+```
 4. Ejecutar el comando `./node_modules/kraken-node/bin/kraken-node run`
-
 
 ## Playwright
 
