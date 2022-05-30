@@ -38,4 +38,4 @@ https://github.com/clts-uniandes/estrategia-pruebas-ghost/issues
 
 Hemos preparado un video para exponer de manera general la estrategia de pruebas redactada para el proyecto, y la ejecución de la Semana 1 definida en el mismo.
 
-Enlace a OneDrive: Presentación final - Estrategia de pruebas Ghost.mp4
+Enlace a OneDrive: [Presentación final - Estrategia de pruebas Ghost.mp4](https://uniandes-my.sharepoint.com/personal/d_zunigab_uniandes_edu_co/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fd%5Fzunigab%5Funiandes%5Fedu%5Fco%2FDocuments%2FCiclo%202%2FPruebas%20automatizadas%2FEntrega%20Final%2FPresentacio%CC%81n%20final%20%2D%20Estrategia%20de%20pruebas%20Ghost%2Emp4&parent=%2Fpersonal%2Fd%5Fzunigab%5Funiandes%5Fedu%5Fco%2FDocuments%2FCiclo%202%2FPruebas%20automatizadas%2FEntrega%20Final&ga=1)
